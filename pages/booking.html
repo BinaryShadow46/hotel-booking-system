@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Stay | GrandStay Hotels</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    
+    <div class="container">
+        <h1>Complete Your Booking</h1>
+        <div class="booking-steps">
+            <div class="step active">1. Room Details</div>
+            <div class="step">2. Guest Info</div>
+            <div class="step">3. Payment</div>
+            <div class="step">4. Confirmation</div>
+        </div>
+        
+        <div class="booking-form">
+            <h2>Room Selection</h2>
+            <div id="selectedRoomInfo"></div>
+            
+            <h2>Guest Information</h2>
+            <form id="guestForm">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="tel" placeholder="Phone Number" required>
+                <textarea placeholder="Special Requests"></textarea>
+            </form>
+            
+            <h2>Payment Details</h2>
+            <div class="payment-options">
+                <button onclick="selectPayment('credit')">
+                    <i class="fas fa-credit-card"></i> Credit Card
+                </button>
+                <button onclick="selectPayment('paypal')">
+                    <i class="fab fa-paypal"></i> PayPal
+                </button>
+                <button onclick="selectPayment('mpesa')">
+                    <i class="fas fa-mobile-alt"></i> M-Pesa
+                </button>
+            </div>
+            
+            <button class="btn-confirm" onclick="confirmBooking()">
+                <i class="fas fa-check-circle"></i> Confirm Booking
+            </button>
+        </div>
+    </div>
+    
+    <script src="booking.js"></script>
+</body>
+</html>
