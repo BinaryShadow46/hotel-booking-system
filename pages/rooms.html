@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Rooms | GrandStay Hotels</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation (same as index.html) -->
+    
+    <div class="container">
+        <h1>Available Rooms</h1>
+        <div class="filters">
+            <select id="roomType">
+                <option>All Types</option>
+                <option>Suite</option>
+                <option>Standard</option>
+                <option>Family</option>
+            </select>
+            <select id="priceRange">
+                <option>All Prices</option>
+                <option>$0 - $150</option>
+                <option>$151 - $300</option>
+                <option>$301+</option>
+            </select>
+            <button onclick="filterRooms()">Filter</button>
+        </div>
+        <div id="roomsList" class="rooms-grid">
+            <!-- Rooms will be loaded here -->
+        </div>
+    </div>
+    
+    <script src="rooms.js"></script>
+</body>
+</html>
