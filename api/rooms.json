@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "name": "Deluxe Suite",
+        "description": "Spacious suite with panoramic city views",
+        "price": 299,
+        "capacity": 2,
+        "size": 450,
+        "amenities": ["Free WiFi", "Smart TV", "Minibar", "Air Conditioning"],
+        "available": true
+    },
+    {
+        "id": 2,
+        "name": "Executive Room",
+        "description": "Modern room with premium workspace",
+        "price": 199,
+        "capacity": 2,
+        "size": 350,
+        "amenities": ["Free WiFi", "HD TV", "Coffee Maker", "Work Desk"],
+        "available": true
+    }
+]
