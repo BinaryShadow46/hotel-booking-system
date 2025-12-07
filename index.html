@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Luxury Hotel Booking System">
+    <title>GrandStay Hotels | Book Your Perfect Stay</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+    <!-- PWA iOS Support -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" color="#0d47a1">
+    <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- PWA Install Prompt -->
+    <div id="installPrompt" class="install-prompt">
+        <p>Install our app for better experience</p>
+        <button id="installBtn">Install</button>
+        <button id="dismissBtn">Dismiss</button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-hotel"></i> GrandStay
+            </a>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <a href="pages/rooms.html"><i class="fas fa-bed"></i> Rooms</a>
+                <a href="pages/booking.html"><i class="fas fa-calendar-check"></i> Book Now</a>
+                <a href="#"><i class="fas fa-concierge-bell"></i> Services</a>
+                <a href="#"><i class="fas fa-info-circle"></i> About</a>
+                <div class="nav-user">
+                    <a href="#" id="loginBtn"><i class="fas fa-user"></i> Login</a>
+                    <a href="#" id="registerBtn"><i class="fas fa-user-plus"></i> Register</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Luxury Awaits You</h1>
+            <p>Book your perfect stay with our premium hotel booking system</p>
+            <a href="pages/booking.html" class="btn-primary">
+                <i class="fas fa-calendar-alt"></i> Book Now
+            </a>
+        </div>
+        <div class="search-widget">
+            <h3>Find Your Room</h3>
+            <div class="search-form">
+                <div class="form-group">
+                    <label><i class="fas fa-calendar-day"></i> Check-in</label>
+                    <input type="date" id="checkin" required>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-calendar-day"></i> Check-out</label>
+                    <input type="date" id="checkout" required>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-user-friends"></i> Guests</label>
+                    <select id="guests">
+                        <option>1 Guest</option>
+                        <option selected>2 Guests</option>
+                        <option>3 Guests</option>
+                        <option>4+ Guests</option>
+                    </select>
+                </div>
+                <button class="btn-search" id="searchRooms">
+                    <i class="fas fa-search"></i> Search Rooms
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Rooms -->
+    <section class="featured-rooms">
+        <h2>Featured Rooms</h2>
+        <div class="rooms-container" id="featuredRooms">
+            <!-- Rooms loaded via JavaScript -->
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services">
+        <h2>Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-wifi"></i>
+                <h3>Free Wi-Fi</h3>
+                <p>High-speed internet throughout the hotel</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-swimming-pool"></i>
+                <h3>Swimming Pool</h3>
+                <p>Temperature-controlled pool available 24/7</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-utensils"></i>
+                <h3>Restaurant</h3>
+                <p>Multiple dining options with room service</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-spa"></i>
+                <h3>Spa & Wellness</h3>
+                <p>Relaxing spa treatments and gym facilities</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3><i class="fas fa-hotel"></i> GrandStay Hotels</h3>
+                <p>Experience luxury like never before</p>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                <p><i class="fas fa-envelope"></i> info@grandstay.com</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="pages/rooms.html">Rooms</a>
+                <a href="pages/booking.html">Booking</a>
+                <a href="#">Services</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 GrandStay Hotels. All rights reserved.</p>
+            <p class="pwa-status" id="pwaStatus">PWA: Not installed</p>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Register service worker for PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js');
+            });
+        }
+    </script>
+</body>
+</html>
